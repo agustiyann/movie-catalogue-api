@@ -7,4 +7,5 @@
     <string name="tab_tvshow">TV Show</string>
     <string name="poster_image">This is poster image</string>
     <string name="movieapi">MovieAPI</string>
+    <string name="change_language_settings">Change language</string>
 </resources>
