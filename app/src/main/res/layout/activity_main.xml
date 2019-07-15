@@ -7,6 +7,20 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kavoon"
+            android:text="@string/movieapi"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp" />
+    </android.support.v7.widget.Toolbar>
+
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,9 +28,9 @@
         app:tabMode="fixed"
         android:id="@+id/tablayout_id"
         android:background="@color/colorPrimary"
-        app:tabTextColor="@color/colorSubTitle"
-        app:tabIndicatorColor="@color/colorWhite"
-        app:tabSelectedTextColor="@color/colorWhite"/>
+        app:tabTextColor="@color/colorPrimaryDark"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabSelectedTextColor="@color/colorAccent"/>
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
