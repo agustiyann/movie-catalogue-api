@@ -28,7 +28,7 @@
                 android:id="@+id/img_item_photo"
                 android:scaleType="fitXY"
                 android:contentDescription="@string/poster_image"
-                tools:src="@color/colorAccent"/>
+                android:background="@drawable/img_bg_card"/>
         </com.jcminarro.roundkornerlayout.RoundKornerRelativeLayout>
         <TextView
             android:layout_toEndOf="@id/roundkorner"

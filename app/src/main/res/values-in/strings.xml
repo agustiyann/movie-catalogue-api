@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MovieCatalogueAPI</string>
+    <string name="movie_name">Nama Film</string>
+    <string name="release">Rilis</string>
+    <string name="description">Ini adalah descripsi</string>
+    <string name="tab_movie">Film</string>
+    <string name="tab_tvshow">Acara TV</string>
+    <string name="poster_image">Ini adalah poster</string>
+    <string name="movieapi">MovieAPI</string>
+    <string name="change_language_settings">Ubah bahasa</string>
+</resources>
