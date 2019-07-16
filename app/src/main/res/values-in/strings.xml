@@ -9,7 +9,7 @@
     <string name="poster_image">Ini adalah poster</string>
     <string name="movieapi">MovieAPI</string>
     <string name="change_language_settings">Ubah bahasa</string>
-    <string name="most_popular_movies">Most Popular Movies</string>
-    <string name="upcoming_movies">Upcoming Movies</string>
-    <string name="airing_tv">TV Shows Airing Today</string>
+    <string name="most_popular_movies">Paling Populer</string>
+    <string name="upcoming_movies">Akan Tayang</string>
+    <string name="airing_tv">Tayang Hari Ini</string>
 </resources>
