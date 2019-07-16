@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CardViewViewHolder> {
     private final ArrayList<MovieData> mData = new ArrayList<>();
 
-    public void setMtaData(ArrayList<MovieData> itemData) {
+    public void setMovieData(ArrayList<MovieData> itemData) {
         mData.clear();
         mData.addAll(itemData);
         notifyDataSetChanged();
