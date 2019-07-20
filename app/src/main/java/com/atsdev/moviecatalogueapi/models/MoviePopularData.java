@@ -6,7 +6,7 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
-public class MovieData implements Parcelable {
+public class MoviePopularData implements Parcelable {
     private String title;
     private int voteCount;
     private String posterPath;
@@ -89,7 +89,7 @@ public class MovieData implements Parcelable {
         this.id = id;
     }
 
-    public MovieData(JSONObject object) {
+    public MoviePopularData(JSONObject object) {
         try {
             this.id = object.getInt("id");
             this.title = object.getString("title");
@@ -107,7 +107,7 @@ public class MovieData implements Parcelable {
         }
     }
 
-    private MovieData(Parcel in) {
+    private MoviePopularData(Parcel in) {
         this.title = in.readString();
         this.voteCount = in.readInt();
         this.posterPath = in.readString();
@@ -132,15 +132,15 @@ public class MovieData implements Parcelable {
         dest.writeInt(this.id);
     }
 
-    public static final Creator<MovieData> CREATOR = new Creator<MovieData>() {
+    public static final Creator<MoviePopularData> CREATOR = new Creator<MoviePopularData>() {
         @Override
-        public MovieData createFromParcel(Parcel in) {
-            return new MovieData(in);
+        public MoviePopularData createFromParcel(Parcel in) {
+            return new MoviePopularData(in);
         }
 
         @Override
-        public MovieData[] newArray(int size) {
-            return new MovieData[size];
+        public MoviePopularData[] newArray(int size) {
+            return new MoviePopularData[size];
         }
     };
 

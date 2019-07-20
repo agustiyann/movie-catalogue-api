@@ -15,12 +15,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.atsdev.moviecatalogueapi.R;
-import com.atsdev.moviecatalogueapi.adapters.MovieAdapter;
+import com.atsdev.moviecatalogueapi.adapters.MoviePopularAdapter;
 import com.atsdev.moviecatalogueapi.adapters.MovieUpAdapter;
-import com.atsdev.moviecatalogueapi.models.MovieData;
+import com.atsdev.moviecatalogueapi.models.MoviePopularData;
 import com.atsdev.moviecatalogueapi.models.MovieUpData;
 import com.atsdev.moviecatalogueapi.viewmodel.MovieUpViewModel;
-import com.atsdev.moviecatalogueapi.viewmodel.MovieViewModel;
+import com.atsdev.moviecatalogueapi.viewmodel.MoviePopularViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class MovieFragment extends Fragment {
-    private MovieAdapter movieAdapter;
+    private MoviePopularAdapter moviePopularAdapter;
     private RecyclerView recyclerView;
     private RecyclerView rvMovieUp;
     private MovieUpAdapter movieUpAdapter;
@@ -52,7 +52,7 @@ public class MovieFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        MovieViewModel movieViewModel;
+        MoviePopularViewModel moviePopularViewModel;
         MovieUpViewModel mvUpViewModel;
 
         recyclerView = view.findViewById(R.id.rv_movie);
@@ -66,20 +66,20 @@ public class MovieFragment extends Fragment {
         showRecycleCardView(view);
         showRecyclerMovieUp(view);
 
-        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
-        movieViewModel.setMovie();
-        movieViewModel.getMovie().observe(this, getMovie);
+        moviePopularViewModel = ViewModelProviders.of(this).get(MoviePopularViewModel.class);
+        moviePopularViewModel.setMovie();
+        moviePopularViewModel.getMovie().observe(this, getMovie);
 
         mvUpViewModel = ViewModelProviders.of(this).get(MovieUpViewModel.class);
         mvUpViewModel.setMovie();
         mvUpViewModel.getMovie().observe(this, getMovieUp);
     }
 
-    private final Observer<ArrayList<MovieData>> getMovie = new Observer<ArrayList<MovieData>>() {
+    private final Observer<ArrayList<MoviePopularData>> getMovie = new Observer<ArrayList<MoviePopularData>>() {
         @Override
-        public void onChanged(@Nullable ArrayList<MovieData> movieData) {
-            if (movieData != null) {
-                movieAdapter.setMovieData(movieData);
+        public void onChanged(@Nullable ArrayList<MoviePopularData> moviePopularData) {
+            if (moviePopularData != null) {
+                moviePopularAdapter.setMovieData(moviePopularData);
                 progressBar.setVisibility(View.GONE);
             }
         }
@@ -96,10 +96,10 @@ public class MovieFragment extends Fragment {
     };
 
     private void showRecycleCardView(View view) {
-        movieAdapter = new MovieAdapter();
-        movieAdapter.notifyDataSetChanged();
+        moviePopularAdapter = new MoviePopularAdapter();
+        moviePopularAdapter.notifyDataSetChanged();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, view.isInLayout()));
-        recyclerView.setAdapter(movieAdapter);
+        recyclerView.setAdapter(moviePopularAdapter);
     }
 
     private void showRecyclerMovieUp(View view) {

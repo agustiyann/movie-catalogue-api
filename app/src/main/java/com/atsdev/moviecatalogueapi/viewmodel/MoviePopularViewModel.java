@@ -5,7 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
-import com.atsdev.moviecatalogueapi.models.MovieData;
+import com.atsdev.moviecatalogueapi.models.MoviePopularData;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -16,12 +16,12 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MovieViewModel extends ViewModel {
-    private final MutableLiveData<ArrayList<MovieData>> listMovie = new MutableLiveData<>();
+public class MoviePopularViewModel extends ViewModel {
+    private final MutableLiveData<ArrayList<MoviePopularData>> listMovie = new MutableLiveData<>();
 
     public void setMovie() {
         AsyncHttpClient client = new AsyncHttpClient();
-        final ArrayList<MovieData> listMovieItem = new ArrayList<>();
+        final ArrayList<MoviePopularData> listMovieItem = new ArrayList<>();
         String API_KEY = "a6beac03fb8ef024b93e511757777e5c";
         String url = "https://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY + "&language=en-US&page=1";
 
@@ -35,7 +35,7 @@ public class MovieViewModel extends ViewModel {
 
                     for (int i = 0; i < listMv.length(); i++) {
                         JSONObject movie = listMv.getJSONObject(i);
-                        MovieData mData = new MovieData(movie);
+                        MoviePopularData mData = new MoviePopularData(movie);
                         listMovieItem.add(mData);
                     }
                     listMovie.postValue(listMovieItem);
@@ -51,7 +51,7 @@ public class MovieViewModel extends ViewModel {
         });
     }
 
-    public LiveData<ArrayList<MovieData>> getMovie() {
+    public LiveData<ArrayList<MoviePopularData>> getMovie() {
         return listMovie;
     }
 }

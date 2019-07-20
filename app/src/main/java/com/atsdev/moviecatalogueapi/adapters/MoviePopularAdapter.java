@@ -10,15 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.atsdev.moviecatalogueapi.R;
-import com.atsdev.moviecatalogueapi.models.MovieData;
+import com.atsdev.moviecatalogueapi.models.MoviePopularData;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CardViewViewHolder> {
-    private final ArrayList<MovieData> mData = new ArrayList<>();
+public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapter.CardViewViewHolder> {
+    private final ArrayList<MoviePopularData> mData = new ArrayList<>();
 
-    public void setMovieData(ArrayList<MovieData> itemData) {
+    public void setMovieData(ArrayList<MoviePopularData> itemData) {
         mData.clear();
         mData.addAll(itemData);
         notifyDataSetChanged();
@@ -26,13 +26,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CardViewView
 
     @NonNull
     @Override
-    public MovieAdapter.CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public MoviePopularAdapter.CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_movie, viewGroup, false);
         return new CardViewViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MovieAdapter.CardViewViewHolder cardViewViewHolder, int i) {
+    public void onBindViewHolder(@NonNull MoviePopularAdapter.CardViewViewHolder cardViewViewHolder, int i) {
         cardViewViewHolder.bind(mData.get(i));
     }
 
@@ -56,11 +56,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.CardViewView
             cardView = itemView.findViewById(R.id.cardview);
         }
 
-        void bind(MovieData movieData) {
-            tvName.setText(movieData.getTitle());
-            tvRelease.setText(movieData.getReleaseDate());
-            tvDescription.setText(movieData.getOverview());
-            Glide.with(itemView).load(movieData.getPosterPath())
+        void bind(MoviePopularData moviePopularData) {
+            tvName.setText(moviePopularData.getTitle());
+            tvRelease.setText(moviePopularData.getReleaseDate());
+            tvDescription.setText(moviePopularData.getOverview());
+            Glide.with(itemView).load(moviePopularData.getPosterPath())
                     .into(imgMovie);
         }
     }
