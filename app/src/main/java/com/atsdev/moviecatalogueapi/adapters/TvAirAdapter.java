@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.atsdev.moviecatalogueapi.R;
 import com.atsdev.moviecatalogueapi.models.TvAiringData;
@@ -41,12 +42,15 @@ public class TvAirAdapter extends RecyclerView.Adapter<TvAirAdapter.CardViewView
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         final ImageView imageView;
+        final TextView titleTv;
         public CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.img_tvairing);
+            titleTv = itemView.findViewById(R.id.tv_item_tvair);
         }
 
         public void bind(TvAiringData tvAiringData) {
+            titleTv.setText(tvAiringData.getName());
             Glide.with(itemView).load(tvAiringData.getBackdropPath())
                     .into(imageView);
         }
