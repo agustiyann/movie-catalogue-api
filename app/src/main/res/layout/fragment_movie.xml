@@ -46,18 +46,18 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="8dp"/>
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_movie"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:listitem="@layout/item_movie"/>
         <ProgressBar
             android:id="@+id/progressbar"
             style="@style/Base.Widget.AppCompat.ProgressBar"
             android:layout_width="match_parent"
             android:visibility="gone"
             android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_movie"
+            android:layout_width="match_parent"
+            android:layout_height="470dp"
+            android:orientation="vertical"
+            tools:listitem="@layout/item_movie"/>
     </LinearLayout>
 
 </ScrollView>

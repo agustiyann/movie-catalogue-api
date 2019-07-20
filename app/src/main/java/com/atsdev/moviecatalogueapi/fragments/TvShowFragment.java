@@ -16,8 +16,11 @@ import android.widget.ProgressBar;
 
 import com.atsdev.moviecatalogueapi.R;
 import com.atsdev.moviecatalogueapi.adapters.TvAirAdapter;
+import com.atsdev.moviecatalogueapi.adapters.TvPopularAdapter;
 import com.atsdev.moviecatalogueapi.models.TvAiringData;
+import com.atsdev.moviecatalogueapi.models.TvPopularData;
 import com.atsdev.moviecatalogueapi.viewmodel.TvAiringViewModel;
+import com.atsdev.moviecatalogueapi.viewmodel.TvPopularViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,8 +31,11 @@ import java.util.ArrayList;
  */
 public class TvShowFragment extends Fragment {
     private TvAirAdapter tvAirAdapter;
+    private TvPopularAdapter tvPopularAdapter;
+    private RecyclerView rvTvPopular;
     private RecyclerView rvTvAir;
     private ProgressBar progressBar;
+    private ProgressBar progressBarTvPop;
 
     public TvShowFragment() {
         // Required empty public constructor
@@ -47,16 +53,26 @@ public class TvShowFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         TvAiringViewModel tvAiringViewModel;
+        TvPopularViewModel tvPopularViewModel;
 
         rvTvAir = view.findViewById(R.id.rv_tv_airing);
         progressBar = view.findViewById(R.id.progressbar_tvair);
         progressBar.setVisibility(View.VISIBLE);
 
+        rvTvPopular = view.findViewById(R.id.rv_tv_popular);
+        progressBarTvPop = view.findViewById(R.id.progressbar_populartv);
+        progressBarTvPop.setVisibility(View.VISIBLE);
+
         showRecyclerTvAiring(view);
+        showRecyclerTvPopular(view);
 
         tvAiringViewModel = ViewModelProviders.of(this).get(TvAiringViewModel.class);
         tvAiringViewModel.setTvAir();
         tvAiringViewModel.getTvAiring().observe(this, getTvAring);
+
+        tvPopularViewModel = ViewModelProviders.of(this).get(TvPopularViewModel.class);
+        tvPopularViewModel.setTvPopular();
+        tvPopularViewModel.getTvPopular().observe(this, getTvPopular);
     }
 
     private final Observer<ArrayList<TvAiringData>> getTvAring = new Observer<ArrayList<TvAiringData>>() {
@@ -69,10 +85,27 @@ public class TvShowFragment extends Fragment {
         }
     };
 
+    private final Observer<ArrayList<TvPopularData>> getTvPopular = new Observer<ArrayList<TvPopularData>>() {
+        @Override
+        public void onChanged(@Nullable ArrayList<TvPopularData> tvPopularData) {
+            if (tvPopularData != null) {
+                tvPopularAdapter.setTvPopularData(tvPopularData);
+                progressBarTvPop.setVisibility(View.GONE);
+            }
+        }
+    };
+
     private void showRecyclerTvAiring(View view) {
         tvAirAdapter = new TvAirAdapter();
         tvAirAdapter.notifyDataSetChanged();
         rvTvAir.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, view.isInLayout()));
         rvTvAir.setAdapter(tvAirAdapter);
+    }
+
+    private void showRecyclerTvPopular(View view) {
+        tvPopularAdapter = new TvPopularAdapter();
+        tvPopularAdapter.notifyDataSetChanged();
+        rvTvPopular.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, view.isInLayout()));
+        rvTvPopular.setAdapter(tvPopularAdapter);
     }
 }
