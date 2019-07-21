@@ -6,15 +6,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.atsdev.moviecatalogueapi.R;
-import com.atsdev.moviecatalogueapi.models.MoviePopularData;
+import com.atsdev.moviecatalogueapi.models.MovieUpData;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
-public class DetailMoviePopularActivity extends AppCompatActivity {
-    public static final String EXTRA_MOVIE = "extra_movie";
-    MoviePopularData moviePopularData;
+public class DetailMovieUpcomingActivity extends AppCompatActivity {
+    public static final String EXTRA_MOVIE_UP = "extra_movie_up";
+    MovieUpData movieUpData;
     TextView mvTitle;
     TextView releaseDate;
     TextView voteAverage;
@@ -26,7 +26,7 @@ public class DetailMoviePopularActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_movie_popular);
+        setContentView(R.layout.activity_detail_movie_upcoming);
 
         mvTitle = findViewById(R.id.tv_name);
         releaseDate = findViewById(R.id.tv_release);
@@ -36,21 +36,21 @@ public class DetailMoviePopularActivity extends AppCompatActivity {
         backdropPath = findViewById(R.id.blur_image);
         posterPath = findViewById(R.id.poster_image);
 
-        moviePopularData = getIntent().getParcelableExtra(EXTRA_MOVIE);
+        movieUpData = getIntent().getParcelableExtra(EXTRA_MOVIE_UP);
 
-        mvTitle.setText(moviePopularData.getTitle());
-        releaseDate.setText(moviePopularData.getReleaseDate());
+        mvTitle.setText(movieUpData.getTitle());
+        releaseDate.setText(movieUpData.getReleaseDate());
 //        voteAverage.setText(String.valueOf(moviePopularData.getVoteAverage()));
-        String voteNumber = moviePopularData.getVoteAverage().toString();
+        String voteNumber = movieUpData.getVoteAverage().toString();
         String percent = "/10";
         String voteValue =voteNumber + percent;
         voteAverage.setText(voteValue);
-        tvPopularity.setText(String.valueOf(moviePopularData.getPopularity()));
-        contentOverview.setText(moviePopularData.getOverview());
-        Glide.with(this).load(moviePopularData.getPosterPath())
+        tvPopularity.setText(String.valueOf(movieUpData.getPopularity()));
+        contentOverview.setText(movieUpData.getOverview());
+        Glide.with(this).load(movieUpData.getPosterPath())
                 .apply(RequestOptions.bitmapTransform(new BlurTransformation(10, 1)))
                 .into(backdropPath);
-        Glide.with(this).load(moviePopularData.getPosterPath())
+        Glide.with(this).load(movieUpData.getPosterPath())
                 .into(posterPath);
     }
 }

@@ -3,6 +3,7 @@ package com.atsdev.moviecatalogueapi.fragments;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,9 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.atsdev.moviecatalogueapi.ItemClickSupport;
 import com.atsdev.moviecatalogueapi.R;
 import com.atsdev.moviecatalogueapi.adapters.TvAirAdapter;
 import com.atsdev.moviecatalogueapi.adapters.TvPopularAdapter;
+import com.atsdev.moviecatalogueapi.details.DetailTvAirActivity;
+import com.atsdev.moviecatalogueapi.details.DetailTvPopularActivity;
 import com.atsdev.moviecatalogueapi.models.TvAiringData;
 import com.atsdev.moviecatalogueapi.models.TvPopularData;
 import com.atsdev.moviecatalogueapi.viewmodel.TvAiringViewModel;
@@ -81,6 +85,8 @@ public class TvShowFragment extends Fragment {
             if (tvAiringData != null) {
                 tvAirAdapter.setTvAirData(tvAiringData);
                 progressBar.setVisibility(View.GONE);
+                ItemClickSupport.addTo(rvTvAir).setOnItemClickListener((rvTvAir, position, v) ->
+                        showSelectedTvAir(tvAiringData.get(position)));
             }
         }
     };
@@ -91,9 +97,23 @@ public class TvShowFragment extends Fragment {
             if (tvPopularData != null) {
                 tvPopularAdapter.setTvPopularData(tvPopularData);
                 progressBarTvPop.setVisibility(View.GONE);
+                ItemClickSupport.addTo(rvTvPopular).setOnItemClickListener((rvTvPopular, position, v) ->
+                        showSelectedTvPop(tvPopularData.get(position)));
             }
         }
     };
+
+    private void showSelectedTvAir(TvAiringData itemTvAir) {
+        Intent intent = new Intent(getActivity(), DetailTvAirActivity.class);
+        intent.putExtra(DetailTvAirActivity.EXTRA_TV, itemTvAir);
+        startActivity(intent);
+    }
+
+    private void showSelectedTvPop(TvPopularData itemTvPop) {
+        Intent mpInten = new Intent(getActivity(), DetailTvPopularActivity.class);
+        mpInten.putExtra(DetailTvPopularActivity.EXTRA_TV_POP, itemTvPop);
+        startActivity(mpInten);
+    }
 
     private void showRecyclerTvAiring(View view) {
         tvAirAdapter = new TvAirAdapter();

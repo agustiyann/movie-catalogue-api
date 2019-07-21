@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".details.DetailMoviePopularActivity"></activity>
+        <activity android:name=".details.DetailTvPopularActivity"></activity>
+        <activity android:name=".details.DetailTvAirActivity" />
+        <activity android:name=".details.DetailMovieUpcomingActivity" />
+        <activity android:name=".details.DetailMoviePopularActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

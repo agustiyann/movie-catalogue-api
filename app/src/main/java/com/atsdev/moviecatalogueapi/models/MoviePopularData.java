@@ -107,16 +107,9 @@ public class MoviePopularData implements Parcelable {
         }
     }
 
-    private MoviePopularData(Parcel in) {
-        this.title = in.readString();
-        this.voteCount = in.readInt();
-        this.posterPath = in.readString();
-        this.overview = in.readString();
-        this.releaseDate = in.readString();
-        this.language = in.readString();
-        this.voteAverage = (Number) in.readSerializable();
-        this.popularity = (Number) in.readSerializable();
-        this.id = in.readInt();
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     @Override
@@ -132,6 +125,18 @@ public class MoviePopularData implements Parcelable {
         dest.writeInt(this.id);
     }
 
+    protected MoviePopularData(Parcel in) {
+        this.title = in.readString();
+        this.voteCount = in.readInt();
+        this.posterPath = in.readString();
+        this.overview = in.readString();
+        this.releaseDate = in.readString();
+        this.language = in.readString();
+        this.voteAverage = (Number) in.readSerializable();
+        this.popularity = (Number) in.readSerializable();
+        this.id = in.readInt();
+    }
+
     public static final Creator<MoviePopularData> CREATOR = new Creator<MoviePopularData>() {
         @Override
         public MoviePopularData createFromParcel(Parcel in) {
@@ -143,9 +148,4 @@ public class MoviePopularData implements Parcelable {
             return new MoviePopularData[size];
         }
     };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 }

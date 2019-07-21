@@ -20,6 +20,7 @@ import com.atsdev.moviecatalogueapi.R;
 import com.atsdev.moviecatalogueapi.adapters.MoviePopularAdapter;
 import com.atsdev.moviecatalogueapi.adapters.MovieUpAdapter;
 import com.atsdev.moviecatalogueapi.details.DetailMoviePopularActivity;
+import com.atsdev.moviecatalogueapi.details.DetailMovieUpcomingActivity;
 import com.atsdev.moviecatalogueapi.models.MoviePopularData;
 import com.atsdev.moviecatalogueapi.models.MovieUpData;
 import com.atsdev.moviecatalogueapi.viewmodel.MoviePopularViewModel;
@@ -85,7 +86,7 @@ public class MovieFragment extends Fragment {
                 moviePopularAdapter.setMovieData(moviePopularData);
                 progressBar.setVisibility(View.GONE);
                 ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView, position, v) ->
-                showSelectedPopularData(moviePopularData.get(position)));
+                        showSelectedPopularData(moviePopularData.get(position)));
             }
         }
     };
@@ -96,6 +97,8 @@ public class MovieFragment extends Fragment {
             if (movieUpData !=null) {
                 movieUpAdapter.setMovieUpData(movieUpData);
                 progressBarUp.setVisibility(View.GONE);
+                ItemClickSupport.addTo(rvMovieUp).setOnItemClickListener((rvMovieUp, position, v) ->
+                        showSelectedUpcomingData(movieUpData.get(position)));
             }
         }
     };
@@ -104,6 +107,12 @@ public class MovieFragment extends Fragment {
         Intent intent = new Intent(getActivity(), DetailMoviePopularActivity.class);
         intent.putExtra(DetailMoviePopularActivity.EXTRA_MOVIE, itemPopularData);
         startActivity(intent);
+    }
+
+    private void showSelectedUpcomingData(MovieUpData itemUpData) {
+        Intent upIntent = new Intent(getActivity(), DetailMovieUpcomingActivity.class);
+        upIntent.putExtra(DetailMovieUpcomingActivity.EXTRA_MOVIE_UP, itemUpData);
+        startActivity(upIntent);
     }
 
     private void showRecycleCardView(View view) {

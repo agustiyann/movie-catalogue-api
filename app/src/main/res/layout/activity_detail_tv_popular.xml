@@ -58,12 +58,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_name"
+                    android:id="@+id/tv_item_name"
                     style="@style/Text1"
                     android:text="@string/movie_name" />
 
                 <TextView
-                    android:id="@+id/tv_release"
+                    android:id="@+id/tv_item_release"
                     style="@style/Text2"
                     android:text="@string/release"
                     android:textAlignment="center" />
