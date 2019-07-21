@@ -3,6 +3,7 @@ package com.atsdev.moviecatalogueapi.fragments;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,13 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.atsdev.moviecatalogueapi.ItemClickSupport;
 import com.atsdev.moviecatalogueapi.R;
 import com.atsdev.moviecatalogueapi.adapters.MoviePopularAdapter;
 import com.atsdev.moviecatalogueapi.adapters.MovieUpAdapter;
+import com.atsdev.moviecatalogueapi.details.DetailMoviePopularActivity;
 import com.atsdev.moviecatalogueapi.models.MoviePopularData;
 import com.atsdev.moviecatalogueapi.models.MovieUpData;
-import com.atsdev.moviecatalogueapi.viewmodel.MovieUpViewModel;
 import com.atsdev.moviecatalogueapi.viewmodel.MoviePopularViewModel;
+import com.atsdev.moviecatalogueapi.viewmodel.MovieUpViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -31,8 +34,8 @@ import java.util.ArrayList;
  */
 public class MovieFragment extends Fragment {
     private MoviePopularAdapter moviePopularAdapter;
-    private RecyclerView recyclerView;
-    private RecyclerView rvMovieUp;
+    RecyclerView recyclerView;
+    RecyclerView rvMovieUp;
     private MovieUpAdapter movieUpAdapter;
     private ProgressBar progressBar;
     private ProgressBar progressBarUp;
@@ -77,23 +80,31 @@ public class MovieFragment extends Fragment {
 
     private final Observer<ArrayList<MoviePopularData>> getMovie = new Observer<ArrayList<MoviePopularData>>() {
         @Override
-        public void onChanged(@Nullable ArrayList<MoviePopularData> moviePopularData) {
+        public void onChanged(ArrayList<MoviePopularData> moviePopularData) {
             if (moviePopularData != null) {
                 moviePopularAdapter.setMovieData(moviePopularData);
                 progressBar.setVisibility(View.GONE);
+                ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView, position, v) ->
+                showSelectedPopularData(moviePopularData.get(position)));
             }
         }
     };
 
     private final Observer<ArrayList<MovieUpData>> getMovieUp = new Observer<ArrayList<MovieUpData>>() {
         @Override
-        public void onChanged(@Nullable ArrayList<MovieUpData> movieUpData) {
+        public void onChanged(ArrayList<MovieUpData> movieUpData) {
             if (movieUpData !=null) {
                 movieUpAdapter.setMovieUpData(movieUpData);
                 progressBarUp.setVisibility(View.GONE);
             }
         }
     };
+
+    private void showSelectedPopularData(MoviePopularData itemPopularData) {
+        Intent intent = new Intent(getActivity(), DetailMoviePopularActivity.class);
+        intent.putExtra(DetailMoviePopularActivity.EXTRA_MOVIE, itemPopularData);
+        startActivity(intent);
+    }
 
     private void showRecycleCardView(View view) {
         moviePopularAdapter = new MoviePopularAdapter();

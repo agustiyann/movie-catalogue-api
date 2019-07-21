@@ -107,30 +107,6 @@ public class MovieUpData implements Parcelable {
         }
     }
 
-    protected MovieUpData(Parcel in) {
-        this.id = in.readInt();
-        this.voteCount = in.readInt();
-        this.title = in.readString();
-        this.posterPath = in.readString();
-        this.overview = in.readString();
-        this.releaseDate = in.readString();
-        this.language = in.readString();
-        this.voteAverage = (Number) in.readSerializable();
-        this.popularity = (Number) in.readSerializable();
-    }
-
-    public static final Creator<MovieUpData> CREATOR = new Creator<MovieUpData>() {
-        @Override
-        public MovieUpData createFromParcel(Parcel in) {
-            return new MovieUpData(in);
-        }
-
-        @Override
-        public MovieUpData[] newArray(int size) {
-            return new MovieUpData[size];
-        }
-    };
-
     @Override
     public int describeContents() {
         return 0;
@@ -148,4 +124,28 @@ public class MovieUpData implements Parcelable {
         dest.writeSerializable(this.popularity);
         dest.writeInt(this.id);
     }
+
+    protected MovieUpData(Parcel in) {
+        this.id = in.readInt();
+        this.voteCount = in.readInt();
+        this.title = in.readString();
+        this.posterPath = in.readString();
+        this.overview = in.readString();
+        this.releaseDate = in.readString();
+        this.language = in.readString();
+        this.voteAverage = (Number) in.readSerializable();
+        this.popularity = (Number) in.readSerializable();
+    }
+
+    public static final Parcelable.Creator<MovieUpData> CREATOR = new Parcelable.Creator<MovieUpData>() {
+        @Override
+        public MovieUpData createFromParcel(Parcel in) {
+            return new MovieUpData(in);
+        }
+
+        @Override
+        public MovieUpData[] newArray(int size) {
+            return new MovieUpData[size];
+        }
+    };
 }

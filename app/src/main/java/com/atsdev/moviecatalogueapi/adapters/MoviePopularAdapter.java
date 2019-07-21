@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapter.CardViewViewHolder> {
-    private final ArrayList<MoviePopularData> mData = new ArrayList<>();
+    private ArrayList<MoviePopularData> mData = new ArrayList<>();
 
     public void setMovieData(ArrayList<MoviePopularData> itemData) {
         mData.clear();
