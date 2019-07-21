@@ -92,13 +92,13 @@ public class MovieUpData implements Parcelable {
     public MovieUpData (JSONObject object) {
         try {
             this.id = object.getInt("id");
-            this.voteCount = object.getInt("vote_count");
             this.title = object.getString("title");
             this.overview = object.getString("overview");
             this.releaseDate = object.getString("release_date");
             this.language = object.getString("original_language");
             String poster= object.getString("poster_path" );
             this.posterPath = "https://image.tmdb.org/t/p/w185/" + poster;
+            this.voteCount = object.getInt("vote_count");
             this.voteAverage = (Number) object.get("vote_average");
             this.popularity = (Number) object.get("popularity");
         } catch (Exception e) {
@@ -126,15 +126,15 @@ public class MovieUpData implements Parcelable {
     }
 
     protected MovieUpData(Parcel in) {
-        this.id = in.readInt();
-        this.voteCount = in.readInt();
         this.title = in.readString();
+        this.voteCount = in.readInt();
         this.posterPath = in.readString();
         this.overview = in.readString();
         this.releaseDate = in.readString();
         this.language = in.readString();
         this.voteAverage = (Number) in.readSerializable();
         this.popularity = (Number) in.readSerializable();
+        this.id = in.readInt();
     }
 
     public static final Parcelable.Creator<MovieUpData> CREATOR = new Parcelable.Creator<MovieUpData>() {
