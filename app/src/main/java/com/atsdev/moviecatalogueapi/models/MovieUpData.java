@@ -125,7 +125,7 @@ public class MovieUpData implements Parcelable {
         dest.writeInt(this.id);
     }
 
-    protected MovieUpData(Parcel in) {
+    private MovieUpData(Parcel in) {
         this.title = in.readString();
         this.voteCount = in.readInt();
         this.posterPath = in.readString();

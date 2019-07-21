@@ -14,6 +14,8 @@ import com.atsdev.moviecatalogueapi.adapters.ViewPagerAdapter;
 import com.atsdev.moviecatalogueapi.fragments.MovieFragment;
 import com.atsdev.moviecatalogueapi.fragments.TvShowFragment;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(null);
     }
 
     @Override

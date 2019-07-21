@@ -14,29 +14,21 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class DetailMovieUpcomingActivity extends AppCompatActivity {
     public static final String EXTRA_MOVIE_UP = "extra_movie_up";
-    MovieUpData movieUpData;
-    TextView mvTitle;
-    TextView releaseDate;
-    TextView voteAverage;
-    TextView tvPopularity;
-    TextView contentOverview;
-    ImageView backdropPath;
-    ImageView posterPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_movie_upcoming);
 
-        mvTitle = findViewById(R.id.tv_name);
-        releaseDate = findViewById(R.id.tv_release);
-        voteAverage = findViewById(R.id.tv_vote);
-        tvPopularity = findViewById(R.id.tv_popularity);
-        contentOverview = findViewById(R.id.tv_description);
-        backdropPath = findViewById(R.id.blur_image);
-        posterPath = findViewById(R.id.poster_image);
+        TextView mvTitle = findViewById(R.id.tv_name);
+        TextView releaseDate = findViewById(R.id.tv_release);
+        TextView voteAverage = findViewById(R.id.tv_vote);
+        TextView tvPopularity = findViewById(R.id.tv_popularity);
+        TextView contentOverview = findViewById(R.id.tv_description);
+        ImageView backdropPath = findViewById(R.id.blur_image);
+        ImageView posterPath = findViewById(R.id.poster_image);
 
-        movieUpData = getIntent().getParcelableExtra(EXTRA_MOVIE_UP);
+        MovieUpData movieUpData = getIntent().getParcelableExtra(EXTRA_MOVIE_UP);
 
         mvTitle.setText(movieUpData.getTitle());
         releaseDate.setText(movieUpData.getReleaseDate());

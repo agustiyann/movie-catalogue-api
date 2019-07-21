@@ -118,7 +118,7 @@ public class TvPopularData implements Parcelable {
         }
     }
 
-    protected TvPopularData(Parcel in) {
+    private TvPopularData(Parcel in) {
         this.name = in.readString();
         this.popularity = (Number) in.readSerializable();
         this.voteCount = in.readInt();

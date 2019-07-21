@@ -43,13 +43,13 @@ public class TvPopularAdapter extends RecyclerView.Adapter<TvPopularAdapter.Card
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         final ImageView posterTvPop;
         final TextView nameTvPop;
-        public CardViewViewHolder(@NonNull View itemView) {
+        CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
             posterTvPop = itemView.findViewById(R.id.poster_tv_pop);
             nameTvPop = itemView.findViewById(R.id.tv_name_pop);
         }
 
-        public void bind(TvPopularData tvPopularData) {
+        void bind(TvPopularData tvPopularData) {
             nameTvPop.setText(tvPopularData.getName());
             Glide.with(itemView).load(tvPopularData.getPosterPath())
                     .into(posterTvPop);

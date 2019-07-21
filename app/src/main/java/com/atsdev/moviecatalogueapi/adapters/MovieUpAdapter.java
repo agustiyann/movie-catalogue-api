@@ -43,13 +43,13 @@ public class MovieUpAdapter extends RecyclerView.Adapter<MovieUpAdapter.CardView
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         final ImageView imgMovie;
         final TextView tvName;
-        public CardViewViewHolder(@NonNull View itemView) {
+        CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
             imgMovie = itemView.findViewById(R.id.imageUpView);
             tvName = itemView.findViewById(R.id.tv_item_up);
         }
 
-        public void bind(MovieUpData movieData) {
+        void bind(MovieUpData movieData) {
             tvName.setText(movieData.getTitle());
             Glide.with(itemView).load(movieData.getPosterPath())
                     .into(imgMovie);

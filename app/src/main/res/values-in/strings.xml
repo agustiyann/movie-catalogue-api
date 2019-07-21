@@ -16,4 +16,6 @@
     <string name="start_popularity">Start popularity</string>
     <string name="chart">Chart</string>
     <string name="popularity">111.111</string>
+    <string name="desc">This is image</string>
+    <string name="todo">this image</string>
 </resources>

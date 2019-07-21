@@ -35,8 +35,8 @@ import java.util.ArrayList;
  */
 public class MovieFragment extends Fragment {
     private MoviePopularAdapter moviePopularAdapter;
-    RecyclerView recyclerView;
-    RecyclerView rvMovieUp;
+    private RecyclerView recyclerView;
+    private RecyclerView rvMovieUp;
     private MovieUpAdapter movieUpAdapter;
     private ProgressBar progressBar;
     private ProgressBar progressBarUp;

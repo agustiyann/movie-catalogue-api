@@ -32,7 +32,7 @@
             android:id="@+id/rv_tv_airing"
             android:layout_width="match_parent"
             android:layout_height="210dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
             android:clipToPadding="false"
             android:orientation="horizontal"
             tools:listitem="@layout/item_tv_airing"/>
@@ -57,7 +57,7 @@
             android:id="@+id/rv_tv_popular"
             android:layout_width="match_parent"
             android:layout_height="210dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
             android:clipToPadding="false"
             android:orientation="horizontal"
             tools:listitem="@layout/item_movie_upcoming"/>

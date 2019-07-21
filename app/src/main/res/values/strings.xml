@@ -11,11 +11,13 @@
     <string name="most_popular_movies">Most Popular Movies</string>
     <string name="upcoming_movies">Upcoming Movies</string>
     <string name="airing_tv">TV Shows Airing Today</string>
-    <string name="desc_tvairing">This is image tv airing today</string>
-    <string name="popular_tv_shows">Popular TV Shows</string>
+    <string name="desc_tvairing" translatable="false">This is image tv airing today</string>
+    <string name="popular_tv_shows" translatable="false">Popular TV Shows</string>
     <string name="backdrop_image">this is backdrop image</string>
-    <string name="_70">70%</string>
+    <string name="_70" translatable="false">70%</string>
     <string name="start_popularity">Start popularity</string>
     <string name="chart">Chart</string>
     <string name="popularity">111.111</string>
+    <string name="desc">This is image</string>
+    <string name="todo">this image</string>
 </resources>

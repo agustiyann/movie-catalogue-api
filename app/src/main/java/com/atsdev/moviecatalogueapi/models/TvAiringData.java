@@ -118,7 +118,7 @@ public class TvAiringData implements Parcelable {
         }
     }
 
-    protected TvAiringData(Parcel in) {
+    private TvAiringData(Parcel in) {
         this.voteCount = in.readInt();
         this.id = in.readInt();
         this.voteAverage = (Number) in.readSerializable();

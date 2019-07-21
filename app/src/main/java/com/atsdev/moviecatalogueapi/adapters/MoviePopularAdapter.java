@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapter.CardViewViewHolder> {
-    private ArrayList<MoviePopularData> mData = new ArrayList<>();
+    private final ArrayList<MoviePopularData> mData = new ArrayList<>();
 
     public void setMovieData(ArrayList<MoviePopularData> itemData) {
         mData.clear();
@@ -46,14 +46,12 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
         final TextView tvName;
         final TextView tvRelease;
         final TextView tvDescription;
-        final CardView cardView;
         CardViewViewHolder(@NonNull View itemView) {
             super(itemView);
             imgMovie = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_item_name);
             tvRelease = itemView.findViewById(R.id.tv_item_release);
             tvDescription = itemView.findViewById(R.id.tv_description);
-            cardView = itemView.findViewById(R.id.cardview);
         }
 
         void bind(MoviePopularData moviePopularData) {

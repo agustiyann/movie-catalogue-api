@@ -14,29 +14,21 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class DetailTvPopularActivity extends AppCompatActivity {
     public static final String EXTRA_TV_POP = "extra_tv";
-    TvPopularData tvPopularData;
-    TextView mvTitle;
-    TextView releaseDate;
-    TextView voteAverage;
-    TextView tvPopularity;
-    TextView contentOverview;
-    ImageView backdropPath;
-    ImageView posterPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_tv_popular);
 
-        mvTitle = findViewById(R.id.tv_item_name);
-        releaseDate = findViewById(R.id.tv_item_release);
-        voteAverage = findViewById(R.id.tv_vote);
-        tvPopularity = findViewById(R.id.tv_popularity);
-        contentOverview = findViewById(R.id.tv_description);
-        backdropPath = findViewById(R.id.blur_image);
-        posterPath = findViewById(R.id.poster_image);
+        TextView mvTitle = findViewById(R.id.tv_item_name);
+        TextView releaseDate = findViewById(R.id.tv_item_release);
+        TextView voteAverage = findViewById(R.id.tv_vote);
+        TextView tvPopularity = findViewById(R.id.tv_popularity);
+        TextView contentOverview = findViewById(R.id.tv_description);
+        ImageView backdropPath = findViewById(R.id.blur_image);
+        ImageView posterPath = findViewById(R.id.poster_image);
 
-        tvPopularData = getIntent().getParcelableExtra(EXTRA_TV_POP);
+        TvPopularData tvPopularData = getIntent().getParcelableExtra(EXTRA_TV_POP);
 
         mvTitle.setText(tvPopularData.getName());
         releaseDate.setText(tvPopularData.getFirstAirDate());
