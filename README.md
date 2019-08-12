@@ -44,6 +44,7 @@ Fitur yang harus ada pada aplikasi:
 ## DEMO Aplikasi
 
 ![App Demo](demo/demo.gif =1280x720)
+<img src="demo/demo.gif" width="1280" height="720" />
 
 **Jangan lupa kasih ★**
 
