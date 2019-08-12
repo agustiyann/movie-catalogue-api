@@ -22,7 +22,7 @@ public class MovieUpViewModel extends ViewModel {
     public void setMovie() {
         AsyncHttpClient client = new AsyncHttpClient();
         final ArrayList<MovieUpData> listMovieItem = new ArrayList<>();
-        String API_KEY = "a6beac03fb8ef024b93e511757777e5c";
+        String API_KEY = "Your themoviedb API key";
         String url = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + API_KEY + "&language=en-US&page=1";
 
         client.get(url, new AsyncHttpResponseHandler() {
