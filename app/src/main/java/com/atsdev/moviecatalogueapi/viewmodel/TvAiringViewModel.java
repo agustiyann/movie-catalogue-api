@@ -22,7 +22,7 @@ public class TvAiringViewModel extends ViewModel {
     public void setTvAir() {
         AsyncHttpClient client = new AsyncHttpClient();
         final ArrayList<TvAiringData> listTvAirItem = new ArrayList<>();
-        String API_KEY = "a6beac03fb8ef024b93e511757777e5c";
+        String API_KEY = "Your themoviedb API key";
         String url = "https://api.themoviedb.org/3/tv/airing_today?api_key=" + API_KEY + "&language=en-US&page=1";
 
         client.get(url, new AsyncHttpResponseHandler() {
