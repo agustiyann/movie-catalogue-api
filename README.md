@@ -1,9 +1,9 @@
-#Submission 3
-##Kriteria
+# Submission 3
+## Kriteria
 Fitur yang harus ada pada aplikasi:
 
 1. Daftar film
-    Syarat:
+    - Syarat:
     * Terdapat 2 (dua) halaman yang menampilkan daftar film (Movies dan Tv Show)
     * Menggunakan Fragment untuk menampung halaman Movies dan Tv Show.
     * Menggunakan RecyclerView untuk menampilkan daftar film.
@@ -11,20 +11,20 @@ Fitur yang harus ada pada aplikasi:
     * Menampilkan indikator loading ketika data sedang dimuat.
 
 2. Detail film
-  Syarat:
+    - Syarat:
     * Menampilkan poster dan informasi film pada halaman detail film.
     * Menggunakan ConstraintLayout untuk menyusun layout.
     * Menampilkan indikator loading ketika data sedang dimuat.
 
 3. Localization
-  Syarat:
+    - Syarat:
     * Aplikasi harus mendukung bahasa Indonesia dan bahasa Inggris.
 
 4. Configuration Changes
-  Syarat:
+    - Syarat:
     * Aplikasi harus bisa menjaga data yang sudah dimuat ketika terjadi pergantian orientasi dari potrait ke landscape atau sebaliknya.
     
-##Resources
+## Resources
 *  Untuk mendapatkan API Key silakan ikuti tutorial pada tautan berikut:
    https://blog.dicoding.com/registrasi-testing-themoviedb-api/
 *  Gunakan endpoint berikut untuk mendapatkan data Movies:
@@ -41,9 +41,9 @@ Fitur yang harus ada pada aplikasi:
 *  Penjelasan mengenai poster dapat Anda lihat pada tautan berikut:
    https://developers.themoviedb.org/3/configuration/get-api-configuration
 
-#DEMO Aplikasi
+## DEMO Aplikasi
 
-![App Demo](demo/demo.gif)
+![App Demo](demo/demo.gif =1280x720)
 
 **Jangan lupa kasih ★**
 
