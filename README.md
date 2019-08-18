@@ -45,7 +45,7 @@ Fitur yang harus ada pada aplikasi:
 
 <img src="demo/demo.gif" width="256" />
 
-**Jangan lupa follow dan kasih ★** lihat profil akademi saya [di sini](https://www.dicoding.com/users/319160).
+**Jangan lupa follow dan kasih ★** lihat profil akademi saya [di sini](https://www.dicoding.com/users/319160/academies).
 
 
 
