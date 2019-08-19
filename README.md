@@ -41,7 +41,7 @@ Fitur yang harus ada pada aplikasi:
 *  Penjelasan mengenai poster dapat Anda lihat pada tautan berikut:
    https://developers.themoviedb.org/3/configuration/get-api-configuration
 
-## DEMO Aplikasi
+## Demo Aplikasi
 
 <img src="demo/demo.gif" width="256" />
 
